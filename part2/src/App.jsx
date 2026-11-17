@@ -8,7 +8,7 @@ const App = () => {
     const [notes, setNotes] = useState([])
     const [newNote, setNewNote] = useState('')
     const [showAll, setShowAll] = useState(true)
-    const {errorMessage, setErrorMessage} = useState('some error happened...')
+    const {errorMessage, setErrorMessage} = useState(null)
 
     useEffect(() => {
         noteService
@@ -22,7 +22,7 @@ const App = () => {
         event.preventDefault()
         const noteObject = {
             content: newNote,
-            important: Math.random > 0.5,
+            important: Math.random() > 0.5,
         }
 
         noteService
